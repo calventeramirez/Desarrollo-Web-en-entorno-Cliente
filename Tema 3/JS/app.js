@@ -5,5 +5,6 @@ function sumar(){
     a = Number(a);//Transforma el String a entero
     b = Number(b);
 
-   alert("La suma es: "+ (a+b));
+    //Compruebo si es un numero sino no hago la suma
+    alert (isNaN(a+b)?"No se puede hacer la suma":"La suma es: "+(a+b));
 }
