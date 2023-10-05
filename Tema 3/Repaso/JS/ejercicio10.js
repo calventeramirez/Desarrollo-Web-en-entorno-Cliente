@@ -1,0 +1,31 @@
+function repetidos(array, elem){
+    let cont = 0;
+    for(let i = 0; i < array.length; i++){
+        if(array[i] === elem){
+            cont ++;
+        }
+    }
+    if(cont === 1){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function copiaSinRepes(array1, array2){
+    let arrayFinal = [];
+    for(let i = 0; i < array1.length; i++){
+        if(!array2.includes(array1[i]) && !repetidos(array1, array1[i])){
+            arrayFinal.push(array1[i]);
+        }
+    }
+    for(let i = 0; i < array2.length; i++){
+        if(!array1.includes(array2[i]) && !repetidos(array2, array2[i])){
+            arrayFinal.push(array2[i])
+        }
+    }
+
+    return arrayFinal;
+}
+
+console.log(copiaSinRepes([77, "ciao",8, "ciao"], [78, 42]));
