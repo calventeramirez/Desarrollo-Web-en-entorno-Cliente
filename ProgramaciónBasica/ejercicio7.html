@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <script>
+        let n = [];
+        let dato;
+        do{
+            dato = prompt("Introduzca un dato al array");
+            if(dato != "."){
+                dato = Number(dato);
+                n.push(dato);
+            }
+        }while(dato != ".");
+
+        let arrayFinal = [];
+        let acumulador = 0;
+        for(let i = 0; i < n.length; i++){
+            acumulador += n[i];
+            arrayFinal.push(acumulador);
+        }
+        console.log(n);
+        console.log(arrayFinal);
+    </script>
+</body>
+</html>

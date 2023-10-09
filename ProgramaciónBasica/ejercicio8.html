@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function countBy(x, y){
+            let array = [];
+            if(x < 0 || y < 0){
+                return array;
+            }else{
+                for(let i = 0; i < y; i++){
+                    if(i == 0){
+                        array.push(1);
+                    }else{
+                        array.push(i*x);
+                    }  
+                }
+                return array;
+            }
+
+        }
+    </script>
+    <h1>CoutBy</h1>
+    <p id ="contador"></p>
+    <script type="text/javascript">
+        console.log(countBy(5,8));
+    </script>
+</body>
+</html>
