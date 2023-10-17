@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla</title>
+    <link rel="stylesheet" href="css/pakita.css">
+    <link rel="stylesheet" href="css/chichio.css">
 </head>
 <body>
     <table class = "pakita" border = "1px" width = "200px" height = "300px">
@@ -20,7 +22,7 @@
     <button type ="button" onclick="altYAnchMas();">Altura y anchura +</button>    
     <button type ="button" onclick="cambiarBorde();">Borde</button>
     <button type ="button" onclick="cambiarAlineacion();">Alineación</button>
-    <button type ="button">Cambiar de CSS</button>
+    <button type ="button" onclick = "cambiarCss();">Cambiar de CSS</button>
 </body>
 </html>
 
@@ -55,8 +57,8 @@
         let anch = pedirValor();
         let tabla = document.getElementsByTagName("table");
         
-        let sumaAlt = tabla[0].offsetHeight + alt;
-        let sumaAnch  =  tabla[0].offsetWidth + anch;
+        let sumaAlt = parseInt(tabla[0].offsetHeight) + parseInt(alt);
+        let sumaAnch  =  parseInt(tabla[0].offsetWidth) + parseInt(anch);
 
         tabla[0].width = sumaAnch + "px";
         tabla[0].height = sumaAlt + "px";
@@ -69,22 +71,32 @@
         tabla[0].border = bor+"px";
     }
 
-    function alineacion(ali){
-        if(ali == "center"){
-            return "left";
-        }else if(ali == "right"){
-            return "left";
-        }else{
-            return "center";
-        }
-    }
-
     function cambiarAlineacion(){
         let tabla = document.getElementsByTagName("table");
         let al = tabla[0].align;
-        console.log(al);
-        let alineacion = alineacion(al);
-        console.log(alineacion);
+        let alineacion;
+        switch(al){
+            case "center":
+                alineacion = "right";
+                break;
+            case "right":
+                alineacion = "left";
+                break;
+            default:
+                alineacion = "center";
+        }
         tabla[0].align = alineacion;
+    }
+
+    function cambiarCss(){
+        let tabla = document.getElementsByTagName("table");
+        if(tabla[0].classList == "pakita"){
+            tabla[0].classList.remove("pakita");
+            tabla[0].classList.add("chichio");
+        }else{
+            tabla[0].classList.remove("chichio");
+            tabla[0].classList.add("pakita");
+        }
+        
     }
 </script>
