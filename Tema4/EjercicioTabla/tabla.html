@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla</title>
+</head>
+<body>
+    <table class = "pakita" border = "1px" width = "200px" height = "300px">
+        <tr>
+            <td colspan="2">1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+    <br><br>
+    <button type ="button" onclick="altYAnch();">Altura y anchura</button>
+    <button type ="button" onclick="altYAnchMas();">Altura y anchura +</button>    
+    <button type ="button" onclick="cambiarBorde();">Borde</button>
+    <button type ="button" onclick="cambiarAlineacion();">Alineación</button>
+    <button type ="button">Cambiar de CSS</button>
+</body>
+</html>
+
+
+<!--
+    a1) un boton que pida al usuario la altura y la anchura y se la pone a la tabla
+    a2)otro boton que sume el valor de width y height que introduzca el usuario con lo que hay
+    b)otro boton cambie el borde al que diga el usuario
+    c)otro boton  cada vez que se pulse mueva la alinecion de la ytabla siguiente al orden: izq, centro, derch, izq,...
+    d)creo 2 clases css: pakita y chichio para la tabla y al pulsarlo alterne estas dos clases
+-->
+<script type ="text/javascript">
+    function pedirValor(){
+        let dev;
+        do{
+            dev = prompt("Introduzca un valor: ")
+            dev = Number(dev);
+        }while(isNaN(dev));
+        return dev;
+    }
+
+    function altYAnch(){
+        let alt = pedirValor();
+        let anch = pedirValor();
+        let tabla = document.getElementsByTagName("table");
+        tabla[0].width = anch + "px";
+        tabla[0].height = alt + "px";
+    }
+
+    function altYAnchMas(){
+        let alt = pedirValor();
+        let anch = pedirValor();
+        let tabla = document.getElementsByTagName("table");
+        
+        let sumaAlt = tabla[0].offsetHeight + alt;
+        let sumaAnch  =  tabla[0].offsetWidth + anch;
+
+        tabla[0].width = sumaAnch + "px";
+        tabla[0].height = sumaAlt + "px";
+    }
+
+    function cambiarBorde(){
+        let bor = pedirValor();
+        let tabla = document.getElementsByTagName("table");
+       
+        tabla[0].border = bor+"px";
+    }
+
+    function alineacion(ali){
+        if(ali == "center"){
+            return "left";
+        }else if(ali == "right"){
+            return "left";
+        }else{
+            return "center";
+        }
+    }
+
+    function cambiarAlineacion(){
+        let tabla = document.getElementsByTagName("table");
+        let al = tabla[0].align;
+        console.log(al);
+        let alineacion = alineacion(al);
+        console.log(alineacion);
+        tabla[0].align = alineacion;
+    }
+</script>
