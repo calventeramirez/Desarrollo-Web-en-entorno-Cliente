@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tabla</title>
-    <link rel="stylesheet" href="css/pakita.css">
-    <link rel="stylesheet" href="css/chichio.css">
-</head>
-<body>
-    <table class = "pakita" border = "1px" width = "200px" height = "300px">
-        <tr>
-            <td colspan="2">1</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>3</td>
-        </tr>
+    <link rel="stylesheet" href="css/pakita.css" />
+    <link rel="stylesheet" href="css/chichio.css" />
+  </head>
+  <body>
+    <div>
+        <button type="button" onclick="altYAnch();">Altura y anchura</button>
+        <button type="button" onclick="altYAnchMas();">Altura y anchura +</button>
+        <button type="button" onclick="cambiarBorde();">Borde</button>
+        <button type="button" onclick="cambiarAlineacion();">Alineación</button>
+        <button type="button" onclick="cambiarCss();">Cambiar de CSS</button>
+        <button type="button" onclick="fixcell();">Fixcell</button>
+        <button type="button" onclick="test();">Test</button>
+      </div>
+    <table class="pakita" border="1px" width="200px" height="300px">
+      <tr>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>3</td>
+      </tr>
     </table>
     <br><br>
-    <button type ="button" onclick="altYAnch();">Altura y anchura</button>
-    <button type ="button" onclick="altYAnchMas();">Altura y anchura +</button>    
-    <button type ="button" onclick="cambiarBorde();">Borde</button>
-    <button type ="button" onclick="cambiarAlineacion();">Alineación</button>
-    <button type ="button" onclick = "cambiarCss();">Cambiar de CSS</button>
-</body>
+    <p>
+        Lorem ipsum <strong>dolor</strong> sit amet consectetur adipisicing elit. Voluptas consequatur aliquam impedit ut, laboriosam ratione esse deleniti at excepturi numquam voluptatem animi optio adipisci labore magnam deserunt reiciendis. Eaque, sed!
+        <br>
+        Lorem ipsum <strong>dolor</strong> sit amet consectetur adipisicing elit. Voluptas consequatur aliquam impedit ut, laboriosam ratione esse deleniti at excepturi numquam voluptatem animi optio adipisci labore magnam deserunt reiciendis. Eaque, sed!
+        <br>
+    </p>
+    <p>No tengo nada que ofrecerte</p>
+  </body>
 </html>
-
 
 <!--
     a1) un boton que pida al usuario la altura y la anchura y se la pone a la tabla
@@ -34,69 +44,88 @@
     c)otro boton  cada vez que se pulse mueva la alinecion de la ytabla siguiente al orden: izq, centro, derch, izq,...
     d)creo 2 clases css: pakita y chichio para la tabla y al pulsarlo alterne estas dos clases
 -->
-<script type ="text/javascript">
-    function pedirValor(){
-        let dev;
-        do{
-            dev = prompt("Introduzca un valor: ")
-            dev = Number(dev);
-        }while(isNaN(dev));
-        return dev;
-    }
+<script type="text/javascript">
+  function pedirValor() {
+    let dev;
+    do {
+      dev = prompt("Introduzca un valor: ");
+      dev = Number(dev);
+    } while (isNaN(dev));
+    return dev;
+  }
 
-    function altYAnch(){
-        let alt = pedirValor();
-        let anch = pedirValor();
-        let tabla = document.getElementsByTagName("table");
-        tabla[0].width = anch + "px";
-        tabla[0].height = alt + "px";
-    }
+  function altYAnch() {
+    let alt = pedirValor();
+    let anch = pedirValor();
+    let tabla = document.getElementsByTagName("table");
+    tabla[0].setAttribute("width", anch + "px");
+    tabla[0].setAttribute("height", alt + "px");
+    //tambien existe para sacar el valor getAttribute
+  }
 
-    function altYAnchMas(){
-        let alt = pedirValor();
-        let anch = pedirValor();
-        let tabla = document.getElementsByTagName("table");
-        
-        let sumaAlt = parseInt(tabla[0].offsetHeight) + parseInt(alt);
-        let sumaAnch  =  parseInt(tabla[0].offsetWidth) + parseInt(anch);
+  function altYAnchMas() {
+    let alt = pedirValor();
+    let anch = pedirValor();
+    let tabla = document.getElementsByTagName("table");
+    //Tambien serviria y es mas corto let tabla = document.getElementsByTagName("table")[0]; y asi solo tengo que llamar a tabla
+    let sumaAlt = parseInt(tabla[0].offsetHeight) + parseInt(alt);
+    let sumaAnch = parseInt(tabla[0].offsetWidth) + parseInt(anch);
 
-        tabla[0].width = sumaAnch + "px";
-        tabla[0].height = sumaAlt + "px";
-    }
+    tabla[0].setAttribute("width", sumaAnch + "px");
+    tabla[0].setAttribute("height", sumaAlt + "px");
+  }
 
-    function cambiarBorde(){
-        let bor = pedirValor();
-        let tabla = document.getElementsByTagName("table");
-       
-        tabla[0].border = bor+"px";
-    }
+  function cambiarBorde() {
+    let bor = pedirValor();
+    let tabla = document.getElementsByTagName("table")[0];
 
-    function cambiarAlineacion(){
-        let tabla = document.getElementsByTagName("table");
-        let al = tabla[0].align;
-        let alineacion;
-        switch(al){
-            case "center":
-                alineacion = "right";
-                break;
-            case "right":
-                alineacion = "left";
-                break;
-            default:
-                alineacion = "center";
-        }
-        tabla[0].align = alineacion;
-    }
+    tabla.setAttribute("border", bor + "px");
+  }
 
-    function cambiarCss(){
-        let tabla = document.getElementsByTagName("table");
-        if(tabla[0].classList == "pakita"){
-            tabla[0].classList.remove("pakita");
-            tabla[0].classList.add("chichio");
-        }else{
-            tabla[0].classList.remove("chichio");
-            tabla[0].classList.add("pakita");
-        }
-        
+  function cambiarAlineacion() {
+    let tabla = document.getElementsByTagName("table");
+    let al = tabla[0].getAttribute("align");
+    let alineacion;
+    switch (al) {
+      case "center":
+        alineacion = "right";
+        break;
+      case "right":
+        alineacion = "left";
+        break;
+      default:
+        alineacion = "center";
     }
+    tabla[0].setAttribute("align", alineacion);
+  }
+
+  function cambiarCss() {
+    let tabla = document.getElementsByTagName("table")[0];
+    let clase = tabla.getAttribute("class");
+    switch (clase) {
+      case "pakita":
+        tabla.setAttribute("class", "chichio");
+        break;
+      default:
+        tabla.setAttribute("class", "pakita");
+        break;
+    }
+  }
+
+  function fixcell(){
+    let fila = document.getElementsByTagName("td")[0];
+    fila.setAttribute("colspan", "2");
+  }
+
+  function test(){
+    let tabla= document.querySelector("table");
+    let parrafo= document.querySelectorAll("p");
+
+    console.log(tabla.innerText);
+
+   /* console.log(parrafo[0].innerHTML);
+    console.log(parrafo[1].innerHTML);
+
+    parrafo[0].innerHTML = "<b>a tomar por el ...</b>";*/
+  }
 </script>
