@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 3</title>
-</head>
-<body>
-    <div border = "1px">
-        <p>0</p>
-        <input type="button" value = "sumar" onclick = "sumar();">
-        <input type="button" value = "restar" onclick = "restar();">
+  </head>
+  <body>
+    <div style="border: 1px;">
+      0
     </div>
-</body>
+    <input type="button" value="sumar" onclick="sumar();" />
+    <input type="button" value="restar" onclick="restar();" />
+  </body>
 </html>
 
 <script>
-    function sumar(){
-        let p = document.querySelector("p");
-        p.innerText = parseInt(p.innerText)+1;
-    }
-    function restar(){
-        let p = document.querySelector("p");
-        p.innerText = parseInt(p.innerText)-1;
-    }
+  function sumar() {
+    let p = document.querySelector("div");
+    p.innerText = parseInt(p.innerText) + 1;
+  }
+  function restar() {
+    let p = document.querySelector("div");
+    p.innerText = parseInt(p.innerText) - 1;
+  }
 </script>
