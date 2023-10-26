@@ -4,59 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 4</title>
+    <script src="JS/ejercicio4.js" defer></script>
   </head>
   <body>
     <div>
       <img src="img/foto1.jpg" alt="Fotos" />
     </div>
-    <input type="button" id="atras" value="Atras" onclick="retroceder();" disabled/>
-    <input type="button" id="adelante" value="Adelante" onclick="avanzar();" />
+    <button disabled>Atras</button>
+    <button>Adelante</button>
   </body>
 </html>
-<script>
-  function avanzar() {
-    let imag = document.querySelector("img");
-    let tipo = imag.getAttribute("src");
-    switch (tipo) {
-      case "img/foto1.jpg":
-        imag.setAttribute("src", "img/foto2.jpg");
-        document.getElementById("atras").removeAttribute("disabled", "");
-        break;
-      case "img/foto2.jpg":
-        imag.setAttribute("src", "img/foto3.jpg");
-        break;
-      case "img/foto3.jpg":
-        imag.setAttribute("src", "img/foto4.jpg");
-        break;
-      case "img/foto4.jpg":
-        imag.setAttribute("src", "img/foto5.jpg");
-        document.getElementById("adelante").setAttribute("disabled", "");
-        break;
-      default:
-        console.log("Boton deshabilitado");
-    }
-  }
-
-  function retroceder() {
-    let imag = document.querySelector("img");
-    let tipo = imag.getAttribute("src");
-    switch (tipo) {
-      case "img/foto5.jpg":
-        imag.setAttribute("src", "img/foto4.jpg");
-        document.getElementById("adelante").removeAttribute("disabled", "");
-        break;
-      case "img/foto4.jpg":
-        imag.setAttribute("src", "img/foto3.jpg");
-        break;
-      case "img/foto3.jpg":
-        imag.setAttribute("src", "img/foto2.jpg");
-        break;
-      case "img/foto2.jpg":
-        imag.setAttribute("src", "img/foto1.jpg");
-        document.getElementById("atras").setAttribute("disabled", "");
-        break;
-      default:
-        console.log("Boton deshabilitado");
-    }
-  }
-</script>

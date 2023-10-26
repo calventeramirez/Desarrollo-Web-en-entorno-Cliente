@@ -4,26 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 8</title>
+    <script src="JS/ejercicio8.js" defer></script>
   </head>
   <body>
     <div>
       <img
         src="img/foto1.jpg"
         alt="Foto 1"
-        onmouseout="salida();"
-        onmouseenter="entrada();"
       />
     </div>
   </body>
 </html>
-<script>
-  function entrada() {
-    im = document.querySelector("img");
-    im.setAttribute("src", "img/foto2.jpg");
-  }
-
-  function salida() {
-    im = document.querySelector("img");
-    im.src = "img/foto1.jpg";
-  }
-</script>

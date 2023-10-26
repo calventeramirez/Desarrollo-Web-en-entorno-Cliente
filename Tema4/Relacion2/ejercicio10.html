@@ -5,30 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 10</title>
     <link rel="stylesheet" href="css/ejercicio10.css">
+    <script src="JS/ejercicio10.js" defer></script>
 </head>
 <body>
-    <div class="div__color1" onmouseenter="entrada1();" onmouseout="salida1();">
+    <div class="div__color1">
 
     </div>
-    <div class = "div__color2" onmouseenter="entrada2();" onmouseout="salida2();">
+    <div class = "div__color2">
 
     </div>
-    <div class = "div__color3" onmouseenter="entrada3();" onmouseout="salida3();">
+    <div class = "div__color3">
 
     </div>
 </body>
 </html>
-
-<script>
-    function entrada1(){
-        let tipo = document.querySelectorAll("div")[0];
-        let estilos = tipo.style;
-        estilos.setProperty("background-color", "purple");
-    }
-
-    function salida1(){
-        let tipo = document.querySelectorAll("div")[0];
-        let estilos = tipo.style;
-        estilos.setProperty("background-color", "red");
-    }
-</script>

@@ -4,23 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 3</title>
+    <script src="JS/ejercicio3.js" defer></script>
   </head>
   <body>
     <div style="border: 1px;">
       0
     </div>
-    <input type="button" value="sumar" onclick="sumar();" />
-    <input type="button" value="restar" onclick="restar();" />
+    <button>Sumar</button>
+    <button>Restar</button>
   </body>
 </html>
-
-<script>
-  function sumar() {
-    let p = document.querySelector("div");
-    p.innerText = parseInt(p.innerText) + 1;
-  }
-  function restar() {
-    let p = document.querySelector("div");
-    p.innerText = parseInt(p.innerText) - 1;
-  }
-</script>
