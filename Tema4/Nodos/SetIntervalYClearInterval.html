@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nodos</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: red;
+        margin-bottom: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+    <input type="button" value="Crear" />
+    <input type="button" value="Borrar" disabled />
+    <input type="button" value="Borrar TODO" />
+  </body>
+</html>
+<script>
+  window.onload = function () {
+    let timer = [];
+    let boton = document.querySelectorAll("input[type = 'button']");
+    let colores = ["red", "green", "aqua", "lightyellow"];
+    let pos = -1;
+    boton[0].onclick = function () {
+      timer.push(
+        setInterval(function () {
+          pos++;
+          if(pos >= colores.length?pos = 0:pos);
+          document.body.style.setProperty("background-color", colores[pos]);
+        }, 500)
+      );
+    };
+
+    boton[2].onclick = function () {
+      for (let i = 0; i < timer.length; i++) {
+        clearInterval(timer[i]);
+      }
+      timer = [];
+    };
+    //setInterval("funcion()", tiempo);
+  };
+</script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nodos</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: red;
+        margin-bottom: 10%;
+        text-align: center;
+      }
+      .parra {
+        background-color: blue;
+        border: 1px solid black;
+        margin-bottom: 10%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+    <input type="button" value="Crear" />
+    <input type="button" value="Borrar" disabled />
+    <input type="button" value="Borrar TODO" />
+  </body>
+</html>
+<script>
+  window.onload = function () {
+    let boton = document.querySelectorAll("input[type = 'button']");
+    let divis = document.querySelectorAll("div");
+
+    for (let i = 0; i < divis.length; i++) {
+      divis[i].textContent = "Pos " + i;
+      divis[i].style.setProperty("color", "#fff");
+    }
+
+    boton[0].onclick = function () {
+      //1- Crear el tipo de nodo deseado
+      let nuevo = document.createElement("p");
+      //2- Colocar atributos SI LOS TUVIERA
+      nuevo.setAttribute("class", "parra");
+      //3-Creo un nodo texto SI LO NECESITO
+      let texto = document.createTextNode("Hola");
+      //3.1Enganchar el nodo texto en el nuevo elemento
+      nuevo.appendChild(texto);
+      //4- Engancho el nuevo elemento a UN PADRE
+      //document.body.appendChild(nuevo);
+      //let padresito = document.querySelector("section");
+      let padresito = divis[2].parentNode;
+      padresito.insertBefore(nuevo, divis[2]);
+      boton[1].removeAttribute("disabled");
+    };
+
+    boton[1].onclick = function () {
+      let muerto = document.querySelector("p");
+      let padresito = muerto.parentNode;
+      padresito.removeChild(muerto);
+      boton[1].setAttribute("disabled", "");
+    };
+
+    boton[2].onclick = function () {
+        let padre = document.querySelector("section");
+        let hijos = padre.children;
+        while(hijos.length > 0){
+            padre.removeChild(hijos[0]);//Elimina la primera pos ya que al ser dinamico el array siempre existe el 0 hasta que no quede elementos
+        }
+    };
+    //setInterval("funcion()", tiempo);
+  };
+</script>
