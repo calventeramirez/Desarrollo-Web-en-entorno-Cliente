@@ -8,7 +8,9 @@ boton.addEventListener("click", function () {
         alert("No has introducido ninguna palabra");
         return;
     }
-
+    palabra1 = palabra1.toUpperCase();
+    palabra2 = palabra2.toUpperCase();
+    
     //Corto palabra a palabra y las ordeno
     let carPal1 = palabra1.split("").sort();
     let carPal2 = palabra2.split("").sort();
