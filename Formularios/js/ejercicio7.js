@@ -12,7 +12,7 @@ boton.addEventListener("click", function(){
         div.setAttribute("class", "tweet");
         textito = textito.split("");
         let textitoAuxiliar = "";
-        for(let i = 0; i < 50; i++){
+        for(let i = 0; i < textito.length && i < 50; i++){
             textitoAuxiliar += textito[i];
         }
         let texto = document.createTextNode(textitoAuxiliar);
