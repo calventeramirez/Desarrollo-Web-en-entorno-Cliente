@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            margin:0 auto;
+            width: 95%;
+            height: 100px;
+            padding: 2%;
+            background-color: green;
+        }
+        div{
+            margin:0 auto;
+            width: 85%;
+            height: 100px;
+            padding: 2%;
+            background-color: blue;
+        }
+        p{
+            margin:0 auto;
+            width: 75%;
+            height: 100px;
+            padding: 2%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <p>Haz click on me, baby</p>
+        </div>
+    </section>
+    <input type="button" value="Enviar">
+</body>
+</html>
+
+<script>
+    let hijo = document.querySelector("p");
+    let padre = document.querySelector("div");
+    let abuelo = document.querySelector("section");
+    /*
+    hijo.onclick = function(){
+        alert("soy el hijo");
+    }
+
+    padre.onclick = function(){
+        alert("soy el padre");
+    }
+
+    abuelo.onclick = function(){
+        alert("soy el abuelo");
+    }*/
+    function nosequedecir(e){
+        alert("Soy hijo 2");
+        e.stopPropagation();
+        alert("tocame nacho");
+    }
+    document.body.addEventListener("click", function(){
+        alert("soy el fantasmas de tus antepasados");
+    });
+
+    abuelo.addEventListener("click",function(){
+        alert("soy el abuelo2");
+    }, true);
+    padre.addEventListener("click",function(){
+        alert("soy el padre2");
+    }, true);
+    hijo.addEventListener("click", nosequedecir, true);
+    let boton = document.querySelector("input[type='button']");
+    boton.onclick = function(){
+        hijo.style.backgroundColor = "yellow";
+        hijo.removeEventListener("click", nosequedecir , true);
+    }
+</script>
+
+<!-- Para evitar la propagacion ponemos un evento en la funcion y lo llamamos con e.stopPropagation(); -->
