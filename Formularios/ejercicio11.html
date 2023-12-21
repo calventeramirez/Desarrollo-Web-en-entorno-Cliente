@@ -9,6 +9,7 @@
     rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ejercicio11.css">
     <script src="js/ejercicio11.js" defer></script>
 </head>
 <body>
@@ -23,6 +24,7 @@
                         </div>
                         <div class="col-8">
                             <input class="form-control" type="text" name = "dni" placeholder="12345678A">
+                            <p id = "dni" ></p>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -31,6 +33,7 @@
                         </div> 
                         <div class="col-8">
                             <input class="form-control" type="text" name="nombre" placeholder="Introduzca su nombre">
+                            <p id = "nombre"></p>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -39,6 +42,7 @@
                         </div> 
                         <div class="col-8">
                             <input class="form-control" type="text" name="apellidos" placeholder="Introduzca su apellidos">
+                            <p id = "apellidos"></p>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -46,7 +50,17 @@
                             <label class="form-label">Fecha de nacimiento</label>
                         </div> 
                         <div class="col-8">
-                            <input class="form-control" type="date" name="fechaNacimiento" placeholder="ss/mm/yyyy">
+                            <input class="form-control" type="date" name="fechaNacimiento"  placeholder="dd/mm/yyyy">
+                            <p id = "fecha"></p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-2 align-items-center">
+                            <label class="form-label">Web personal</label>
+                        </div> 
+                        <div class="col-8">
+                            <input class="form-control" type="url" name="WebPersonal" placeholder="https://www.algo.tresletras">
+                            <p id = "web" ></p>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -55,6 +69,7 @@
                         </div> 
                         <div class="col-8">
                             <input class="form-control" type="password" name="pass" placeholder="********">
+                            <p id = "contrasena" ></p>
                         </div>
                     </div>
                     <div class="row mb-3">
