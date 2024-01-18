@@ -11,8 +11,11 @@ boton.addEventListener("click", function(evt){
     let estaVacio = vacio(dni, nombre, apellidos, fechaNacimiento, contrasena);
     console.log(web);
     if(!estaVacio){
-       if(comprobarDNI(dni) && comprobarNombre(nombre) && comprobarApellidos(apellidos) && comprobarFecha(fechaNacimiento) && compararWeb(web) && compararContrasena(contrasena))
+       if(comprobarDNI(dni) && comprobarNombre(nombre) && comprobarApellidos(apellidos) && comprobarFecha(fechaNacimiento) && compararWeb(web) && compararContrasena(contrasena)){
         alert("Formulario Correcto");
+        window.location = "../ejercicio10.html";
+       }
+        
     }
 
 });
