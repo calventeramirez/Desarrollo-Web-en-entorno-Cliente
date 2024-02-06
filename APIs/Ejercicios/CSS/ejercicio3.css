@@ -1,0 +1,17 @@
+div{
+    border: 2px solid blue;
+    border-radius:20px ;
+    -webkit-border-radius:20px ;
+    -moz-border-radius:20px ;
+    -ms-border-radius:20px ;
+    -o-border-radius:20px ;
+    background-color: aqua;
+    padding-left: 6%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+img{
+    width: 50%;
+    border: 2px solid blue;
+}
