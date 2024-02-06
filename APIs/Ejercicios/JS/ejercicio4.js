@@ -23,14 +23,14 @@ xhr.addEventListener("load", function(respuesta){
         ul.appendChild(li2);
         ul.appendChild(boton2);
         boton2.addEventListener("click", function(){
-            if(resultado[i].completed == "false"){
-                li2.removeChild(text2);
-                text2 = "Estado: true";
+            if(!resultado[i].completed){
+                text2.parentNode.removeChild(text2);
+                text2 = document.createTextNode("Estado: true");
                 li2.appendChild(text2);
                 ul.appendChild(li2);
             }else{
-                li2.removeChild(text2);
-                text2 = "Estado: false";
+                text2.parentNode.removeChild(text2);
+                text2 = document.createTextNode("Estado: false");
                 li2.appendChild(text2);
                 ul.appendChild(li2);
             }
