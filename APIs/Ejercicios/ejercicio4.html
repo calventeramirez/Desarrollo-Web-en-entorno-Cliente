@@ -8,7 +8,14 @@
     <script src="JS/ejercicio4.js" defer></script>
 </head>
 <body>
-    <button>Crear tarea</button>
+    <form>
+        Tarea: <input type = "text" name = "tarea">
+        Completada: <select name = "completada">
+            <option selected value="false">Sin terminar</option>
+            <option value="true">Terminada</option>
+        </select>
+        <button>Crear tarea</button>
+    </form>
     <ul id = "tareas">
     </ul>
 </body>
